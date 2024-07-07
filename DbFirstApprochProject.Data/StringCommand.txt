@@ -1,0 +1,7 @@
+﻿Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+
+ 
+
+Scaffold-DbContext "Server=LPC-PF07ZBVU\SQLEXPRESS;Database=Clone_db;Trusted_Connection=True;TrustServerCertificate=true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force
