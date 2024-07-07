@@ -10,7 +10,7 @@ namespace DbFirstApprochProject.Abstractions.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        Task SaveAsync();
+        Task SaveChangesAsync();
         IGenericRepository<T> GenericRepository<T>() where T : class;
     }
 }

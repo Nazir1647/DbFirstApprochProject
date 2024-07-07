@@ -25,7 +25,7 @@ namespace DbFirstApprochProject.Abstractions.Implementation
             return repo;
         }
 
-        public async Task SaveAsync()
+        public async Task SaveChangesAsync()
         {
            await _context.SaveChangesAsync();
         }

@@ -24,7 +24,7 @@ namespace DbFirstApprochProject.Abstractions.Implementation
             return await _dbSet.AsNoTracking().ToListAsync();
         }
 
-        public async Task<bool> Add(T entity)
+        public async Task<bool> SaveAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
             return true;
@@ -40,7 +40,7 @@ namespace DbFirstApprochProject.Abstractions.Implementation
             return await _dbSet.Where(Predicate).FirstOrDefaultAsync();
         }
 
-        public Task Update(T entity)
+        public Task UpdateAsync(T entity)
         {
             return Task.Run(() =>
             {

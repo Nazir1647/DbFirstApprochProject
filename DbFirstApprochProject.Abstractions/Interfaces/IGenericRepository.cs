@@ -11,8 +11,8 @@ namespace DbFirstApprochProject.Abstractions.Interfaces
     {
         Task<IEnumerable<T>> GetAll();
         Task<T> GetById(Expression<Func<T, bool>> Predicate);
-        Task<bool> Add(T entity);
+        Task<bool> SaveAsync(T entity);
         void Delete(T entity);
-        Task Update(T entity);
+        Task UpdateAsync(T entity);
     }
 }

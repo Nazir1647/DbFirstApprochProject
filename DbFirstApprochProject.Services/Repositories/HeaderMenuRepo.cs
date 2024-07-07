@@ -40,9 +40,20 @@ namespace DbFirstApprochProject.Services.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<bool> SaveAsync(HeaderMenuVM headerMenu)
+        public async Task<bool> SaveAsync(HeaderMenuVM headerMenu)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var data = _mapper.Map<HeaderMenu>(headerMenu);
+                await _unitOfWork.GenericRepository<HeaderMenu>().SaveAsync(data);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
         }
 
         public Task<bool> UpdateAsync(HeaderMenuVM headerMenu)
