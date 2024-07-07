@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DbFirstApprochProject.Services.Models.HeaderMenuVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container p-4">
+    @if (TempData["success"] != null)
+    {
+        <span class="text-danger">@TempData["success"]</span>
+    }
+
+    <div class="row p-3">
+        <div class="col-6">
+            <h2 class="text-primary">HeaderMenu</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-action="Create" asp-controller="HeaderMenu" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> &nbsp; Create New HeaderMenu
+            </a>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Menu Name</th>
+            <th>Created By Name</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MenuName</td>
+                <td>@item.CreatedByName</td>
+                <td>@item.CreatedDate</td>
+                <td role="group">
+                    <a asp-action="Edit" asp-controller="HeaderMenu" asp-route-id="@item.MenuId">Edit</a>
+                    <a asp-action="Delete" asp-controller="HeaderMenu" asp-route-id="@item.MenuId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
